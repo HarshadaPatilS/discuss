@@ -8,9 +8,11 @@
 </head>
 <body>
     <?php
+    session_start();
     include('./client/header.php');
 
-    if(isset($_GET['signup'])){
+    if(isset($_GET['signup']) && !$_SESSION['user']['username'] )
+    {
     include('./client/signup.php');
     }
     else if(isset($_GET['login'])){
